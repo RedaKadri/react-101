@@ -7,6 +7,7 @@ function State() {
 		gender: null,
 		address: null,
 		formation: [],
+		lang: [],
 	});
 
 	const handleChange = (e) => {
@@ -22,8 +23,15 @@ function State() {
 		}));
 	};
 
+	const handleSelectMultipleChange = (e) => {
+		const options = [...e.target.selectedOptions];
+		const selectedOptions = options.map((option) => option.value);
+		setData((prev) => ({ ...prev, lang: selectedOptions }));
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(data);
 	};
 
 	return (
@@ -50,6 +58,13 @@ function State() {
 					<label>Licence</label>
 					<input type='checkbox' name='formation' value='Master' onChange={handleCheckboxChange} />
 					<label>Master</label>
+				</div>
+				<div>
+					<select name='lang' multiple onChange={handleSelectMultipleChange}>
+						<option value='Français'>fr</option>
+						<option value='Anglais'>en</option>
+						<option value='Espagnol'>es</option>
+					</select>
 				</div>
 
 				<button type='submit'>Submit</button>
