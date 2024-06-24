@@ -5,6 +5,7 @@ function Header() {
 		<div style={{ display: 'flex', gap: '10px' }}>
 			<Link to={'/form'}>Form</Link>
 			<Link to={'/toDos'}>ToDos</Link>
+			<Link to={'/articles'}>Articles</Link>
 		</div>
 	);
 }
